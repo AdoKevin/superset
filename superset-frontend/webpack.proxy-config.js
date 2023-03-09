@@ -90,7 +90,7 @@ function copyHeaders(originalResponse, response) {
       if (key === 'set-cookie') {
         // remove cookie domain
         value = Array.isArray(value) ? value : [value];
-        value = value.map(x => x.replace(/Domain=[^;]+?/i, ''));
+        value = value.map(x => x.replace(/Domain=[^;]+;?/i, ''));
       } else if (key === 'location') {
         // set redirects to use local URL
         value = (value || '').replace(backend, '');
